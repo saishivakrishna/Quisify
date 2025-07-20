@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>quiz</title>
+</head>
+<style>
+body{
+background: linear-gradient(135deg, #ff6f91, #ff9671);
+        margin: 0;
+        min-height: 100vh;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #333;
+}
+.inner{
+width:800px;
+height:200px;
+border:2px solid black;
+postion:block;
+padding:20px;
+margin-bottom:20px;
+}
+.option{
+cursor:pointer;
+}
+button{
+background-color:green;
+cursor:pointer;
+margin:30px;
+} 
+button:hover{
+background-color:blue;
+}
+.main{
+ font-size: 3rem;
+        color: white;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        letter-spacing: 1px;
+}
+</style>
+<body>
+ <form th:action="@{/score}"  th:object="${obj}"  method="get">
+     <h1 class="main">Start the Quizz</h1>
+    <div class="inner" th:each="q, iterStat :${quiz}">
+      
+      <h2 th:text="${iterStat.count} + '. ' + ${q.question}"></h2>
+    <div class="option" id="ans">
+   a. <input type="radio" for="ans" th:name="${q.id}" th:text="${q.option_a}" value="A"><br>
+   b. <input type="radio"  for="ans" th:name="${q.id}" th:text="${q.option_b}" value="B"><br>
+   c. <input type="radio" for="ans" th:name="${q.id}" th:text="${q.option_c}" value="C"><br>
+   d. <input type="radio"  for="ans" th:name="${q.id}" th:text="${q.option_d}" value="D">
+     
+        </div> 
+
+   
+    </div>
+   <button type="submit">submit</button>
+    </form>
+   
+</body>
+</html>

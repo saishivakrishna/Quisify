@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Quiz App</title>
+<style>
+    body {
+        background: linear-gradient(135deg, #ff6f91, #ff9671);
+        margin: 0;
+        min-height: 100vh;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #333;
+    }
+    h1.welcome {
+        font-size: 3rem;
+        color: white;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        letter-spacing: 1px;
+    }
+    .container {
+        background: #fff;
+        padding: 40px;
+        border-radius: 16px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        width: 320px;
+        text-align: center;
+    }
+    h2 {
+        font-size: 1.4rem;
+        color: #ff6f91;
+        margin-bottom: 1rem;
+    }
+    label {
+        font-weight: bold;
+        display: block;
+        text-align: left;
+        margin-top: 1rem;
+    }
+    input, select, button {
+        width: 100%;
+        padding: 10px;
+        margin-top: 0.3rem;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 1rem;
+    }
+    select, input {
+        background: #fafafa;
+    }
+    select:focus, input:focus {
+        border-color: #ff6f91;
+        outline: none;
+    }
+    button {
+        background: #ff6f91;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        margin-top: 1.5rem;
+        font-size: 1.1rem;
+        transition: background 0.3s ease;
+    }
+    button:hover {
+        background: #ff3c67;
+    }
+</style>
+</head>
+<body>
+
+   
+    <h1 class="welcome">Welcome to Quizify</h1>
+
+    <!-- Form container -->
+    <div class="container">
+        <h2>Generate Quiz</h2>
+        <form action="/generate-quiz" method="get">
+            <label for="number">Number of questions:</label>
+            <input type="number" id="number" name="number" placeholder="e.g. 10" required>
+
+            <label for="category">Select Category:</label>
+            <select id="category" name="category" required>
+                <option>-- Select Category --</option>
+                <option value="Networks">Networks</option>
+                <option value="DBMS">DBMS</option>
+                <option value="Java">Java</option>
+                <option value="Data Structures">Data Structures</option>
+                <option value="Operating Systems">Operating Systems</option>
+                <option value="Python">Python</option>
+                <option value="Cloud Computing">Cloud Computing</option>
+                <option value="C">C</option>
+                <option value="Networking">Networking</option>
+                <option value="Algorithms">Algorithms</option>
+                <option value="Databases">Databases</option>
+                <option value="Storage">Storage</option>
+                <option value="Software Engineering">Software Engineering</option>
+                <option value="Programming">Programming</option>
+                <option value="MySQL">MySQL</option>
+            </select>
+
+            <label for="difficulty">Difficulty Level:</label>
+            <select id="difficulty" name="difficulty" required>
+                <option>-- Select Level --</option>
+                <option value="Easy">Easy</option>
+                <option value="Medium">Medium</option>
+                <option value="Hard">Hard</option>
+            </select>
+
+            <button type="submit">Generate Quiz</button>
+        </form>
+    </div>
+
+</body>
+</html>
